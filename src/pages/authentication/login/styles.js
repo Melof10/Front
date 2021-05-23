@@ -19,4 +19,7 @@ export const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),      
         padding: theme.spacing(2),
     },
-  }));
+    error: {
+        color: '#f44336'
+    }
+}));

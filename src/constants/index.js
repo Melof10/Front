@@ -8,6 +8,7 @@ module.exports = {
 
     /***** ROUTE for request *****/
     LOGIN: 'users',
+    REFRESH_ACCESS_TOKEN: 'refresh-access-token',
 
     /***** METHOD for request *****/
     REQUEST_METHOD_GET: 'GET',

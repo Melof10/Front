@@ -1,11 +1,11 @@
 import * as Yup from "yup";
+import { EMAIL_INVALID, REQUIRED, errorMinCharacters } from '../../../constants'
 
 export const LoginSchema = Yup.object().shape({    
     email: Yup.string()
-        .email('Invalid email')
-        .required('Required'),
+        .email(EMAIL_INVALID)
+        .required(REQUIRED),
     password: Yup.string()
-        .min(2, 'Too Short!')
-        .max(70, 'Too Long!')
-        .required('Required'),
+        .min(4, errorMinCharacters(4))        
+        .required(REQUIRED),
 });

@@ -9,6 +9,8 @@ import Container from '@material-ui/core/Container';
 import { Formik, Form } from 'formik';
 import { useStyles } from './styles';
 import { LoginSchema } from './settings';
+import axios from 'axios';
+import { API_URL, LOGIN } from '../../../constants';
 
 const Login = () => {
   const classes = useStyles();  
@@ -31,6 +33,14 @@ const Login = () => {
           validationSchema={LoginSchema}
           onSubmit={values => {                 
             console.log(values);
+            axios.post(API_URL + LOGIN, values)
+            .then(response => {
+              console.log(response.data)
+              alert('logueado');
+            })
+            .catch(error => {
+              console.log(error);
+            })
           }}
         >
           {props => (

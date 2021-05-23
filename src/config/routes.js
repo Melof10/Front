@@ -1,7 +1,7 @@
 // Layout
 import LayoutAdmin from "../layouts/LayoutAdmin";
 // Admin Pages
-import Main from '../components/backoffice/posts';
+import Main from '../components/backoffice/Main';
 // Login
 import Login from '../pages/authentication/login';
 // Other

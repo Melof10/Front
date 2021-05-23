@@ -11,12 +11,18 @@ import { useStyles } from './styles';
 import { LoginSchema } from './settings';
 import { handleLogin } from './functions';
 import AlertLogin from './AlertLogin';
+import { getAccessTokenApi } from '../../../utils/auth';
+import { Redirect } from 'react-router-dom';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../../constants';
 
 const Login = () => {
   const classes = useStyles();  
 
-  const [error, setError] = useState(false);  
+  const [error, setError] = useState(false); 
+  
+  if (getAccessTokenApi()) {
+    return <Redirect to="/home" />
+  }
 
   return (
     <Container component="main" maxWidth="xs">

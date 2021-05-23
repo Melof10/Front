@@ -1,9 +1,45 @@
-import React  from 'react';
+import React from 'react';
+import useAuth from '../hooks/useAuth';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Auth from '../pages/auth/Auth';
 
-function NotFound(){
-    return(        
-        <h1>Layout Admin</h1>        
-    )
+const index = (props) => {
+    const { routes } = props;  
+    const { user, isLoading } = useAuth();          
+
+    if (!user && !isLoading) {
+        return (
+          <>
+            <Route path="/login" component={Auth} />
+            <Redirect to="/login" />
+          </>
+        );
+    }
+
+    if(user && !isLoading){
+        return(                        
+            <div>                
+                <LoadRoutes routes={routes} />                        
+            </div>
+        );
+    }    
+
+    return null;
 }
 
-export default NotFound;
+function LoadRoutes({ routes }) {
+    return (
+        <Switch>
+            {routes.map((route, index) => (
+                <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                />
+            ))}
+        </Switch>
+    );
+}
+
+export default index;

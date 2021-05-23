@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,11 +9,14 @@ import Container from '@material-ui/core/Container';
 import { Formik, Form } from 'formik';
 import { useStyles } from './styles';
 import { LoginSchema } from './settings';
-import axios from 'axios';
-import { API_URL, LOGIN } from '../../../constants';
+import { handleLogin } from './functions';
+import AlertLogin from './AlertLogin';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../../constants';
 
 const Login = () => {
   const classes = useStyles();  
+
+  const [error, setError] = useState(false);  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -31,16 +34,16 @@ const Login = () => {
             password: '',
           }}
           validationSchema={LoginSchema}
-          onSubmit={values => {                 
-            console.log(values);
-            axios.post(API_URL + LOGIN, values)
-            .then(response => {
-              console.log(response.data)
-              alert('logueado');
-            })
-            .catch(error => {
-              console.log(error);
-            })
+          onSubmit={ async(values) => {                           
+            setError(false);
+            const user = await handleLogin(values);            
+            if(user){                      
+              const { accessToken, refreshToken } = user;            
+              localStorage.setItem(ACCESS_TOKEN, accessToken);
+              localStorage.setItem(REFRESH_TOKEN, refreshToken);              
+            }else{
+              setError(true);
+            }                        
           }}
         >
           {props => (
@@ -71,7 +74,10 @@ const Login = () => {
                 label="Password"
                 type="password"                
                 autoComplete="current-password"
-              />                        
+              />
+              {error === true &&
+                <AlertLogin />
+              }                        
               <Button
                 type="submit"
                 fullWidth

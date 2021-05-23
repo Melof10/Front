@@ -7,7 +7,7 @@ module.exports = {
     API_URL: 'http://localhost:3000',
 
     /***** ROUTE for request *****/
-    LOGIN: '/users',
+    LOGIN: 'users',
 
     /***** METHOD for request *****/
     REQUEST_METHOD_GET: 'GET',
@@ -17,5 +17,10 @@ module.exports = {
     /***** MESSAGES *****/
     errorMinCharacters,
     REQUIRED: 'Required',
-    EMAIL_INVALID: 'Invalid email'    
+    EMAIL_INVALID: 'Invalid email',
+    LOGIN_INCORRECT: 'User or Password incorrect',
+
+    /***** TOKEM *****/
+    ACCESS_TOKEN: 'accessToken',
+    REFRESH_TOKEN: 'refreshToken',
 }

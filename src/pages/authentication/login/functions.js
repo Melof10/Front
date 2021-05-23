@@ -1,10 +1,11 @@
 import { ApiService } from '../../../services/apiServices';
-import { API_URL, LOGIN, REQUEST_METHOD_GET } from '../../../constants';
+import { API_URL, LOGIN, REQUEST_METHOD_POST } from '../../../constants';
 
-export const Login = async(data) => {
+export const handleLogin = async(data) => {
     return await ApiService({
         API_URL: API_URL,
         BASE: LOGIN,
-        METHOD: REQUEST_METHOD_GET
+        METHOD: REQUEST_METHOD_POST,
+        data: data
     });
 }

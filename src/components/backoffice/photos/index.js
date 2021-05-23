@@ -1,8 +1,9 @@
 import React from 'react';
+import Table from './Table';
 
 const index = () => {
     return(
-        <h1>Photos</h1>
+        <Table />
     )
 }
 

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MaterialTable from '@material-table/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { columns } from './columns';
-import { data } from './data';
 import { options } from './styles';
+import { getPosts } from './functions';
 
-const TableCategories = () => {        
+const TableCategories = () => {  
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        getPosts(setData);
+    }, []);
+    
     return (
         <Container component="main" maxWidth="md">
             <CssBaseline />

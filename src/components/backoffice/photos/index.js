@@ -1,9 +1,9 @@
 import React from 'react';
-import Table from './Table';
+import Cards from './Cards';
 
 const index = () => {
     return(
-        <Table />
+        <Cards />
     )
 }
 

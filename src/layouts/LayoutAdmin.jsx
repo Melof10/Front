@@ -1,9 +1,9 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Auth from '../pages/auth/Auth';
+import Auth from '../pages/authentication/login';
 
-const index = (props) => {
+function Layout(props){
     const { routes } = props;  
     const { user, isLoading } = useAuth();          
 
@@ -42,4 +42,4 @@ function LoadRoutes({ routes }) {
     );
 }
 
-export default index;
+export default Layout;

@@ -40,7 +40,8 @@ const Login = () => {
             if(user){                      
               const { accessToken, refreshToken } = user;            
               localStorage.setItem(ACCESS_TOKEN, accessToken);
-              localStorage.setItem(REFRESH_TOKEN, refreshToken);              
+              localStorage.setItem(REFRESH_TOKEN, refreshToken);  
+              window.location.href = '/home';            
             }else{
               setError(true);
             }                        

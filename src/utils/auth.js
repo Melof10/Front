@@ -1,4 +1,3 @@
-import { ACCESS_TOKEN, REFRESH_TOKEN } from './constants';
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
 import { ApiService } from '../services/apiServices';

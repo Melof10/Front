@@ -1,8 +1,9 @@
 import React from 'react';
+import Table from './Table';
 
 const index = () => {
     return(
-        <h1>Posts</h1>
+        <Table />
     )
 }
 

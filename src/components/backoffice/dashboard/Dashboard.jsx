@@ -21,15 +21,24 @@ import PhotoSizeSelectActualIcon from '@material-ui/icons/PhotoSizeSelectActual'
 import Posts from '../posts';
 import Photos from '../photos';
 import { useStyles } from './styles';
+import { logout } from '../../../utils/auth';
+import useAuth from '../../../hooks/useAuth';
 
 const Dashboard = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(true);
   const [option, setOption] = useState(1);
+  const { user } = useAuth();
+
+  const logoutUser = () => {
+    logout();
+    window.location.reload();
+  }
   
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+
   const handleDrawerClose = () => {
     setOpen(false);
   };  
@@ -49,10 +58,10 @@ const Dashboard = () => {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            CONEXA
-          </Typography>
-          <IconButton color="inherit">
-            <Badge>                
+            {user.email}
+          </Typography>          
+          <IconButton color="inherit" onClick={logoutUser}>                             
+            <Badge>                       
               <PowerSettingsNewIcon />
             </Badge>
           </IconButton>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -13,12 +13,20 @@ import Container from '@material-ui/core/Container';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
-import { mainListItems } from './listItems';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ViewListIcon from '@material-ui/icons/ViewList';
+import PhotoSizeSelectActualIcon from '@material-ui/icons/PhotoSizeSelectActual';
+import Posts from '../posts';
+import Photos from '../photos';
 import { useStyles } from './styles';
 
-export default function Dashboard() {
+const Dashboard = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [option, setOption] = useState(1);
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -63,15 +71,35 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>
+          <ListItem button onClick={() => setOption(1)}>
+            <ListItemIcon>
+              <ViewListIcon />
+            </ListItemIcon>
+            <ListItemText primary="Posts" />
+          </ListItem>
+          <ListItem button onClick={() => setOption(2)}>
+            <ListItemIcon>
+              <PhotoSizeSelectActualIcon />
+            </ListItemIcon>
+            <ListItemText primary="Photos" />
+          </ListItem>    
+        </List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-
+          {option === 1 &&
+            <Posts />
+          }
+          {option === 2 &&
+            <Photos />
+          }                    
         </Container>
       </main>
     </div>
   );
 }
+
+export default Dashboard;

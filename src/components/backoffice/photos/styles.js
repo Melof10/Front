@@ -41,5 +41,11 @@ export const useStyles = makeStyles((theme) => ({
     },
     pos: {
         marginTop: theme.spacing(2)
-    }
+    },
+    paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
 }));

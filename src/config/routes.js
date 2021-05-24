@@ -6,7 +6,8 @@ import Main from '../components/backoffice/dashboard';
 import Login from '../pages/authentication/login';
 // Other
 import NotFound from "../pages/NotFound";
-import ViewPost from "../components/backoffice/posts/ViewPost";;
+import ViewPost from "../components/backoffice/posts/ViewPost";
+import ViewPhoto from "../components/backoffice/photos/ViewPhoto";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
       {
         path: "/post/:id",
         component: ViewPost,
+        exact: true
+      },
+      {
+        path: "/photo/:id",
+        component: ViewPhoto,
         exact: true
       },
       {

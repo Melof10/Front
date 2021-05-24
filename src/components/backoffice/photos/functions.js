@@ -15,6 +15,22 @@ export const getPhotos = async(setData, page) => {
     }) 
 }
 
+export const getPhoto = async(setData, id) => {
+    await ApiService({
+        API_URL: API_URL,
+        BASE: GET_PHOTOS,
+        METHOD: REQUEST_METHOD_GET,
+        ID: id
+    })
+    .then(res => {  
+        console.log(res.photo)
+        setData(res.photo);
+    })
+    .catch(error => {
+        console.log(error)
+    }) 
+}
+
 export const nextPage = (setPhotos, setPage, page) => { 
     setPage(page + 1);   
     getPhotos(setPhotos, page + 1);    

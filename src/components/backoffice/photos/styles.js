@@ -29,10 +29,11 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
     },
-    buttons: {
-        marginTop: theme.spacing(1),
+    pages: {
+        marginTop: theme.spacing(1)
     },
-    buttonBefore: {
-        marginRight: 2
+    button: {
+        marginRight: 2,
+        padding: theme.spacing(1)
     }
 }));

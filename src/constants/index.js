@@ -26,4 +26,8 @@ module.exports = {
     /***** TOKEM *****/
     ACCESS_TOKEN: 'accessToken',
     REFRESH_TOKEN: 'refreshToken',
+
+    /**** PAGES API *****/
+    FIRST_PAGE: 1,
+    LAST_PAGE: 500,
 }

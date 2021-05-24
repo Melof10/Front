@@ -19,7 +19,7 @@ const routes = [
         exact: true
       },
       {
-        path: "/login",
+        path: "/",
         component: Login,
         exact: true
       },

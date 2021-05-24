@@ -23,7 +23,7 @@ module.exports = {
     EMAIL_INVALID: 'Invalid email',
     LOGIN_INCORRECT: 'User or Password incorrect',
 
-    /***** TOKEM *****/
+    /***** TOKEN *****/
     ACCESS_TOKEN: 'accessToken',
     REFRESH_TOKEN: 'refreshToken',
 

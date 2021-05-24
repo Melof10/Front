@@ -37,12 +37,16 @@ export const refreshAccessToken = async(refreshToken) => {
             METHOD: REQUEST_METHOD_POST,
             data: refreshToken
         });
-        if(refreshAccessToken){
-            console.log(refreshAccessToken);
+        if(!refreshAccessToken){
+            logout();
+            console.log(refreshAccessToken);            
+        }else{
+            const { accessToken, refreshToken } = refreshAccessToken;
+            localStorage.setItem(ACCESS_TOKEN, accessToken);
+            localStorage.setItem(REFRESH_TOKEN, refreshToken);
         }
-    }catch(error){
-        logout();
-        console.log(error.response.data);        
+    }catch(error){                
+        console.log(error);        
     }        
 }
 

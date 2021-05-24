@@ -10,7 +10,7 @@ module.exports = {
     LOGIN: 'users',
     GET_POSTS: 'posts',
     GET_PHOTOS: 'photos',
-    REFRESH_ACCESS_TOKEN: 'refresh-access-token',
+    REFRESH_ACCESS_TOKEN: 'refresh-access-token',    
 
     /***** METHOD for request *****/
     REQUEST_METHOD_GET: 'GET',

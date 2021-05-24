@@ -15,3 +15,19 @@ export const getPosts = async(setData) => {
         console.log(error)
     }) 
 }
+
+export const getPost = async(setData, id) => {
+    await ApiService({
+        API_URL: API_URL,
+        BASE: GET_POSTS,
+        METHOD: REQUEST_METHOD_GET,
+        ID: id
+    })
+    .then(res => {  
+        console.log(res.post)
+        setData(res.post);
+    })
+    .catch(error => {
+        console.log(error)
+    }) 
+}

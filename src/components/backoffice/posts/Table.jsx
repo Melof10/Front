@@ -5,9 +5,11 @@ import Container from '@material-ui/core/Container';
 import { columns } from './columns';
 import { options } from './styles';
 import { getPosts } from './functions';
+import { useHistory } from 'react-router-dom';
 
 const TableCategories = () => {  
     const [data, setData] = useState([]);
+    const history = useHistory(); 
 
     useEffect(() => {
         getPosts(setData);
@@ -21,6 +23,15 @@ const TableCategories = () => {
                 data={data}                  
                 title="POSTS"                                
                 options={options}
+                actions={[
+                    {
+                        icon: 'visibility',
+                        tooltip: 'View Post',
+                        onClick: (event, rowData) => {  
+                            history.push('/post/' + rowData.id)
+                        }
+                    }
+                ]}
             /> 
         </Container>       
     )

@@ -35,5 +35,11 @@ export const useStyles = makeStyles((theme) => ({
     button: {
         marginRight: 2,
         padding: theme.spacing(1)
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+        marginTop: theme.spacing(2)
     }
 }));

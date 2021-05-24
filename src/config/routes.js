@@ -6,6 +6,7 @@ import Main from '../components/backoffice/dashboard';
 import Login from '../pages/authentication/login';
 // Other
 import NotFound from "../pages/NotFound";
+import ViewPost from "../components/backoffice/posts/ViewPost";;
 
 const routes = [
   {
@@ -19,7 +20,12 @@ const routes = [
         exact: true
       },
       {
-        path: "/",
+        path: "/post/:id",
+        component: ViewPost,
+        exact: true
+      },
+      {
+        path: "",
         component: Login,
         exact: true
       },

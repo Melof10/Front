@@ -10,8 +10,8 @@ function Layout(props){
     if (!user && !isLoading) {
         return (
           <>
-            <Route path="/login" component={Auth} />
-            <Redirect to="/login" />
+            <Route path="/" component={Auth} />
+            <Redirect to="/" />
           </>
         );
     }

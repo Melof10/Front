@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Alert from '@material-ui/lab/Alert';
 import { Formik, Form } from 'formik';
 import { useStyles } from './styles';
 import { LoginSchema } from './settings';
@@ -94,9 +95,15 @@ const Login = () => {
               >
                 Sign In
               </Button>          
-            </Form>
+              <Alert 
+                severity="info"                 
+                fullWidth
+              >
+                <strong>Email</strong>: test@conexa.com, <strong>Password</strong>: test                
+              </Alert>
+            </Form>            
           )}
-        </Formik>
+        </Formik>        
       </div>      
     </Container>
   );

@@ -17,7 +17,7 @@ const Cards = () => {
 
     useEffect(() => {
         getPhotos(setPhotos, page);        
-    }, [page]);
+    }, []);
 
     return (
         <Fragment>

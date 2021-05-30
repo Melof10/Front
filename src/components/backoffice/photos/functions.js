@@ -8,7 +8,8 @@ export const getPhotos = async(setData, page) => {
         METHOD: REQUEST_METHOD_GET
     })
     .then(res => {        
-        setData(res.photos);
+        console.log(res);
+        setData(res.data);
     })
     .catch(error => {
         console.log(error)
@@ -22,9 +23,9 @@ export const getPhoto = async(setData, id) => {
         METHOD: REQUEST_METHOD_GET,
         ID: id
     })
-    .then(res => {  
-        console.log(res.photo)
-        setData(res.photo);
+    .then(res => {   
+        console.log(res);
+        setData(res.data);
     })
     .catch(error => {
         console.log(error)

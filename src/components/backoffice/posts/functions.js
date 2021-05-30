@@ -9,7 +9,7 @@ export const getPosts = async(setData) => {
     })
     .then(res => {
         console.log(res);
-        setData(res.posts);
+        setData(res.data);
     })
     .catch(error => {
         console.log(error)
@@ -24,8 +24,8 @@ export const getPost = async(setData, id) => {
         ID: id
     })
     .then(res => {  
-        console.log(res.post)
-        setData(res.post);
+        console.log(res)
+        setData(res.data);
     })
     .catch(error => {
         console.log(error)
